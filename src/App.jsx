@@ -1,53 +1,78 @@
-import { Routes, Route } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import Navigation from "./Components/Navigation";
 
-import Home from "./Pages/Home";
-import Products from "./Pages/Products";
-import CategoryProducts from "./Pages/CategoryProducts";
-import ProductDetails from "./Pages/ProductDetails";
-import Cart from "./Pages/Cart";
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import NotFound from "./Pages/NotFound";
+import Dashboard from "./Pages/Dashboard";
+import EmployeeList from "./Pages/EmployeeList";
+import EmployeeDetails from "./Pages/EmployeeDetails";
+import EmployeeFormPage from "./Pages/EmployeeFormPage";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <Header />
 
-      <Routes>
-        {/* Home */}
-        <Route path="/" element={<Home />} />
+      <Navigation />
 
-        {/* Products Parent Route */}
-        <Route path="/products" element={<Products />}>
-          {/* Nested Route */}
+      <main className="main-content">
+        <Routes>
+
           <Route
-            path="category/:category"
-            element={<CategoryProducts />}
+            path="/"
+            element={
+              <Navigate
+                to="/dashboard"
+                replace
+              />
+            }
           />
-        </Route>
 
-        {/* Dynamic Product Route */}
-        <Route
-          path="/products/:id"
-          element={<ProductDetails />}
-        />
+          <Route
+            path="/dashboard"
+            element={<Dashboard />}
+          />
 
-        {/* Other Pages */}
-        <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/employees"
+            element={<EmployeeList />}
+          />
 
-        <Route path="/about" element={<About />} />
+          <Route
+            path="/employees/add"
+            element={<EmployeeFormPage />}
+          />
 
-        <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/employees/edit/:id"
+            element={<EmployeeFormPage />}
+          />
 
-        {/* 404 */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route
+            path="/employees/:id"
+            element={<EmployeeDetails />}
+          />
 
-      <Footer />
+          <Route
+            path="*"
+            element={
+              <div className="not-found">
+                <h1>404</h1>
+                <h2>Page Not Found</h2>
+                <p>
+                  The page you are looking for
+                  does not exist.
+                </p>
+              </div>
+            }
+          />
+
+        </Routes>
+      </main>
     </>
   );
 }
