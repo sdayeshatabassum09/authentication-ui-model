@@ -1,47 +1,77 @@
-export function validateEmployee(formData) {
+export const validateForm = (formData, termsAccepted) => {
+
   const errors = {};
 
-  if (!formData.firstName.trim()) {
-    errors.firstName = "First name is required.";
-  } else if (!/^[A-Za-z]+$/.test(formData.firstName)) {
-    errors.firstName = "First name should contain only letters.";
+  // Full Name
+  if (!formData.fullName.trim()) {
+    errors.fullName = "Full Name is required";
+  } else if (
+    formData.fullName.trim().length < 3 ||
+    formData.fullName.trim().length > 100
+  ) {
+    errors.fullName =
+      "Full Name must be between 3 and 100 characters";
   }
 
-  if (!formData.lastName.trim()) {
-    errors.lastName = "Last name is required.";
-  } else if (!/^[A-Za-z]+$/.test(formData.lastName)) {
-    errors.lastName = "Last name should contain only letters.";
-  }
-
+  // Email
   if (!formData.email.trim()) {
-    errors.email = "Email is required.";
+    errors.email = "Email Address is required";
   } else if (
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
   ) {
-    errors.email = "Enter a valid email address.";
+    errors.email = "Enter a valid email address";
   }
 
-  if (!formData.phone.trim()) {
-    errors.phone = "Phone number is required.";
-  } else if (!/^[0-9]{10}$/.test(formData.phone)) {
-    errors.phone = "Phone number must contain exactly 10 digits.";
+  // Mobile
+  if (!formData.mobileNumber.trim()) {
+    errors.mobileNumber = "Mobile Number is required";
+  } else if (!/^\d{10}$/.test(formData.mobileNumber)) {
+    errors.mobileNumber =
+      "Mobile Number must contain exactly 10 digits";
   }
 
-  if (!formData.department) {
-    errors.department = "Department is required.";
+  // Gender
+  if (!formData.gender) {
+    errors.gender = "Please select Gender";
   }
 
-  if (!formData.designation.trim()) {
-    errors.designation = "Designation is required.";
+  // Address
+  if (!formData.address.trim()) {
+    errors.address = "Address is required";
+  } else if (formData.address.length > 250) {
+    errors.address =
+      "Address cannot exceed 250 characters";
   }
 
-  if (!formData.location) {
-    errors.location = "Location is required.";
+  // City
+  if (!formData.city.trim()) {
+    errors.city = "City is required";
+  } else if (
+    formData.city.trim().length < 2 ||
+    formData.city.trim().length > 50
+  ) {
+    errors.city =
+      "City must be between 2 and 50 characters";
   }
 
-  if (!formData.status) {
-    errors.status = "Status is required.";
+  // State
+  if (!formData.state) {
+    errors.state = "Please select State";
+  }
+
+  // Pincode
+  if (!formData.pincode.trim()) {
+    errors.pincode = "Pincode is required";
+  } else if (!/^\d{6}$/.test(formData.pincode)) {
+    errors.pincode =
+      "Pincode must contain exactly 6 digits";
+  }
+
+  // Terms
+  if (!termsAccepted) {
+    errors.terms =
+      "You must accept the Terms & Conditions";
   }
 
   return errors;
-}
+};
