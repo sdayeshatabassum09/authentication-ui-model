@@ -1,4 +1,4 @@
-import UserRegistration from "./pages/UserRegistration";
+import UserRegistration from "./Pages/UserRegistration";
 
 function App() {
 
