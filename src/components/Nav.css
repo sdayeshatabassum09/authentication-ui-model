@@ -1,0 +1,89 @@
+.navbar {
+  width: 100%;
+  padding: 20px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+   background:#f4f4dce0;
+  position: relative;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+.nav-logo img {
+  width: 125px;
+  height: auto;
+  display: block;
+  filter: brightness(0.3);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.nav-links a {
+  color: #283d35;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact-btn,
+.download-btn {
+  text-decoration: none;
+  font-size: 13px;
+  padding: 13px 22px;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.contact-btn {
+  color: #26332e;
+  border: 1px solid #26332e;
+}
+
+.download-btn {
+  color: #ffffff;
+  background: #18231f;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-buttons {
+    gap: 8px;
+  }
+
+  .contact-btn,
+  .download-btn {
+    padding: 10px 13px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 18px 5%;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .nav-logo img {
+    width: 105px;
+  }
+}

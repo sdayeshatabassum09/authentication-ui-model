@@ -1,0 +1,42 @@
+.testimonial-section {
+  min-height: 570px;
+  background-color: #18231f;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  position: relative;
+}
+
+.testimonial-overlay {
+  min-height: 570px;
+  padding: 85px 8%;
+  background: rgba(24, 35, 31, 0.78);
+  box-sizing: border-box;
+}
+
+.testimonial-label {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 35px;
+}
+
+.testimonial-section h2 {
+  max-width: 1100px;
+  font-size: clamp(30px, 4vw, 60px);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -2px;
+  margin: 0 0 35px;
+}
+
+.testimonial-author {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 650px) {
+  .testimonial-overlay {
+    padding: 65px 6%;
+  }
+}
